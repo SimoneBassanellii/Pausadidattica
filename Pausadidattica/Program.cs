@@ -11,35 +11,41 @@ namespace Pausadidattica
         static void Main(string[] args)
         {
             int[] a = new int[100];
-            int b, c;
+            int b, c, e;
             c = 0;
 
             Console.WriteLine("Inserire numero di elementi da inserire nell'array");
             b = Convert.ToInt32(Console.ReadLine());
             Funzione1(args, b, c);
-            
+            a[c] = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(a[c]);
+
+            Console.WriteLine("Scrivi il numero da cercare");
+            e = Convert.ToInt32(Console.ReadLine());
+            FunzioneRicerca(a, b);
+
         }
 
         //Aggiungere in coda un elemento all'array (interi)
         public static void Funzione1(string[] args, int b, int c )
         {
-            for (int i = 0; i < b; i++)
-            {
-                Console.WriteLine("Inserire l'elemento");
-                c = Convert.ToInt32(Console.ReadLine());    
-            }
+            
         }
 
         //Visualizzazione dell'array che restituisca la stringa in HTML
         public static void Funzione2(string[] args)
         {
-
+            
         }
 
         //Ricerca un numero all'interno dell'array, la funzione deve restituire la posizione dell'elemento se lo trova, -1 se non lo trova;
-        public static void Funzione3(string[] args)
+        public static int FunzioneRicerca(int[] a, int chiave)
         {
-
+            int occorrenze = 0;
+            for (int i = 0; i < 100; i++)
+                if (a[i] == chiave)
+                    occorrenze++;
+            return occorrenze;
         }
 
         //Cancellazione di un elemento dell'array
