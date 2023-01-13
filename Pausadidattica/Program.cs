@@ -23,7 +23,10 @@ namespace Pausadidattica
                 Console.Clear(); 
                 Console.WriteLine("1 - Aggiungi elemento");
                 Console.WriteLine("2 - Stampa elementi caricati");
-                Console.WriteLine("0 - uscità");
+                Console.WriteLine("3 - Visualizzazione array in HTML");
+                Console.WriteLine("4 - Cancellamento elemento array");
+                Console.WriteLine("5 - Inserimento di un valore in una posizione dell'array");
+                Console.WriteLine("0 - Uscità");
                 //scelta delle opzioni 
                 scelta = int.Parse(Console.ReadLine());
                 //esecuzione opzioni 
