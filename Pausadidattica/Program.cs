@@ -10,26 +10,55 @@ namespace Pausadidattica
     {
         static void Main(string[] args)
         {
-            int[] a = new int[100];
-            int b, c, e;
-            c = 0;
+            int[] arr = new int[100];
+            int b, nel, e;
+            int dim = 0;
+            nel = 0;
+            int scelta = 0;
 
-            Console.WriteLine("Inserire numero di elementi da inserire nell'array");
-            b = Convert.ToInt32(Console.ReadLine());
-            Funzione1(args, b, c);
-            a[c] = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(a[c]);
+            //Struttura menù
+            do
+            {
 
-            Console.WriteLine("Scrivi il numero da cercare");
-            e = Convert.ToInt32(Console.ReadLine());
-            FunzioneRicerca(a, b);
 
+                //stampa delle opzioni
+                Console.WriteLine("1 - Aggiungi elemento");
+                Console.WriteLine("2 - Stampa elementi caricati");
+                Console.WriteLine("0 - uscità");
+                //scelta delle opzioni 
+                scelta = int.Parse(Console.ReadLine());
+                //esecuzione opzioni 
+                switch (scelta)
+                {
+                    case 1:
+                        Console.WriteLine($"Inserisci l'elemento ");
+                        int ele = int.Parse(Console.ReadLine());
+                        AddArray(arr, ele, ref dim);
+                        break;
+
+                    case 2:
+                        for (int i = 0; i < dim; i++)
+                        {
+                            Console.WriteLine(arr[i]);
+                        }
+                        break;
+                }
+                Console.ReadLine();
+            }
+            while (scelta != 0);
+            
+            Console.WriteLine("Elementi da caricare");
+            nel = int.Parse(Console.ReadLine());
         }
 
         //Aggiungere in coda un elemento all'array (interi)
-        public static void Funzione1(string[] args, int b, int c )
+        static void AddArray(int[] a, int e,ref int index)
         {
-            
+            if (index < a.Length)
+            {
+                a[index] = e;  
+                index++;
+            }
         }
 
         //Visualizzazione dell'array che restituisca la stringa in HTML
