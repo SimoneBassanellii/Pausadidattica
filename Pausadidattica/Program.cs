@@ -19,9 +19,8 @@ namespace Pausadidattica
             //Struttura menù
             do
             {
-
-
                 //stampa delle opzioni
+                Console.Clear(); 
                 Console.WriteLine("1 - Aggiungi elemento");
                 Console.WriteLine("2 - Stampa elementi caricati");
                 Console.WriteLine("0 - uscità");
@@ -34,6 +33,14 @@ namespace Pausadidattica
                         Console.WriteLine($"Inserisci l'elemento ");
                         int ele = int.Parse(Console.ReadLine());
                         AddArray(arr, ele, ref dim);
+                        if( AddArray(arr, ele, ref dim) == true )
+                        {
+                            Console.WriteLine("Eleneto inseriro correttamente");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Array pieno");
+                        }
                         break;
 
                     case 2:
@@ -41,6 +48,7 @@ namespace Pausadidattica
                         {
                             Console.WriteLine(arr[i]);
                         }
+                        Console.ReadLine();
                         break;
                 }
                 Console.ReadLine();
@@ -52,13 +60,21 @@ namespace Pausadidattica
         }
 
         //Aggiungere in coda un elemento all'array (interi)
-        static void AddArray(int[] a, int e,ref int index)
+        static bool AddArray(int[] a, int e,ref int index)
         {
+            //Controllo se abbiamo raggiunto la dimensione massima
+            bool inserito = true;
             if (index < a.Length)
             {
-                a[index] = e;  
+                //Aggiunta di un elemento
+                a[index] = e;
+                //incrementare l'indice 
                 index++;
             }
+            else
+                inserito = false;
+
+            return inserito;
         }
 
         //Visualizzazione dell'array che restituisca la stringa in HTML
